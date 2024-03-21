@@ -1,8 +1,10 @@
 import 'package:carpool/repositories/home_page.dart';
+import 'package:carpool/theme/app_theme.dart';
 import 'package:carpool/utils/strings/delegates/strings_delegates.dart';
 import 'package:carpool/utils/strings/managers/strings_managers.dart';
 import 'package:carpool/utils/strings/models/app_language_model.dart';
 import 'package:flutter/material.dart';
+import 'repositories/signup_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,15 +30,10 @@ class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Carpolling App',
-      localizationsDelegates: [
-        StringsDelegate(),
-      ],
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: HomePage(title: 'Irbilhos',),
+      themeMode: ThemeMode.system,
+      theme: AppTheme.themeData(Brightness.light),
+      darkTheme: AppTheme.themeData(Brightness.dark),
+      home: const SignupScreen(),
     );
   }
   

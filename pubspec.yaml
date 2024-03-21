@@ -39,4 +39,6 @@ flutter:
   assets:
     - assets/strings/strings_en.json
     - assets/strings/strings_pt.json
-
+    - assets/logos/carLightTheme.png
+    - assets/logos/google.png
+    - assets/logos/facebook.png

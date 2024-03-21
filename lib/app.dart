@@ -13,7 +13,6 @@ final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 class App extends StatefulWidget {
-  late Brightness _currentTheme;
   final StringsDelegate stringsDelegate = StringsDelegate();
 
   App({Key? key}) : super(key: key);
@@ -41,7 +40,6 @@ class _AppState extends State<App> with WidgetsBindingObserver {
         ],
         child: BlocBuilder<LanguageLogic, LanguageState>(
             builder: (context, state) {
-              final String selectedLanguageCode = "en";
 
               return Phoenix(
                 child: OverlaySupport(
@@ -52,11 +50,7 @@ class _AppState extends State<App> with WidgetsBindingObserver {
                       widget.stringsDelegate,
                     ],
                     onGenerateRoute: Routes.generateRoute,
-                    navigatorObservers: [
-                      routeObserver,
-                    ],
                     initialRoute: HomePage.routeName,
-                    debugShowCheckedModeBanner: false,
                     navigatorKey: navigatorKey,
                   ),
                 ),

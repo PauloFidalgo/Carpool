@@ -1,12 +1,12 @@
-import 'dart:js_util';
 
 import 'package:carpool/repositories/home_page.dart';
 import 'package:carpool/repositories/home_page/home_page_logic.dart';
+import 'package:carpool/repositories/home_page/home_page_state.dart';
 import 'package:carpool/repositories/login_page.dart';
 import 'package:carpool/repositories/login_page/login_page_logic.dart';
+import 'package:carpool/repositories/login_page/login_page_state.dart';
 import 'package:carpool/theme/app_colors.dart';
 import 'package:carpool/theme/app_style.dart';
-import 'package:carpool/ui/app_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,7 +19,6 @@ class Routes {
     MaterialPageRoute route(Widget widget) {
       return MaterialPageRoute(
         builder: (context) => widget,
-        settings: settings,
       );
     }
 
@@ -27,7 +26,9 @@ class Routes {
     if (name == HomePage.routeName) {
       return route(
         BlocProvider(
-          create: (context) => HomePageLogic(newObject()),
+          create: (context) => HomePageLogic(
+            HomePageState(),
+          ),
           child: HomePage(
             title: 'ibrilhos',
           ),
@@ -39,12 +40,13 @@ class Routes {
       return route(
         BlocProvider(
           create: (context) => LoginPageLogic(
-            newObject(),
+            LoginPageState(),
           ),
-          child: LoginPage(title: 'ibtimbt'),
+          child: LoginPage(),
         ),
       );
     }
+
 
     return route(_errorRoute(settings));
   }

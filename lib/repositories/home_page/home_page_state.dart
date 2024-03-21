@@ -26,7 +26,7 @@ class HomePageState extends State<HomePage> {
           CarpoolButton.primary(
             title: "Primary Light",
             onTap: () {
-              navigatorKey.currentState!.pushNamed(LoginPage.routeName);
+              Navigator.of(context).pushNamed(LoginPage.routeName);
             },
           ),
           CarpoolButton.primaryDark(
