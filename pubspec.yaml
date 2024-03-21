@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  overlay_support: ^1.1.0
+  overlay_support: ^2.1.0
 
   # Models
   freezed_annotation: 2.4.1

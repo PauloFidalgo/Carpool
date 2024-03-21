@@ -4,9 +4,8 @@ import 'login_page/login_page_state.dart';
 
 
 class LoginPage extends StatefulWidget {
-  static const routeName = '/loginPage';
-  const LoginPage({super.key, required this.title});
-  final String title;
+  static const String routeName = "/loginPage";
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => LoginPageState();
