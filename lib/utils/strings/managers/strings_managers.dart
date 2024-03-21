@@ -6,7 +6,6 @@ import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../language_preferences.dart';
 import '../models/app_language_model.dart';
 import '../models/language_model.dart';
 import '../models/quantity_string_model.dart';
@@ -32,7 +31,7 @@ class StringsManager {
       await _loadLocalStrings(appLanguage.languageStringsJsonPath);
     }
 
-    final preferredLanguage = await LanguagePreferences.getPreferredLanguage();
+    final preferredLanguage = null;
     _currentLanguageCode = preferredLanguage ?? 'en'; // Default to English if not set
 
     return;
@@ -96,10 +95,6 @@ class StringsManager {
 
       stringsList.first.forEach((key, value) {
         if (!key.toString().startsWith(section_prefix)) {
-          // Used to generate the constants list
-          // print('STRING_KEY: const String ' + key + ' = "' + key + '";');
-
-          // Simple String
           if (value is String) {
             strings.add(StringModel(key: key, value: value));
           } else {
@@ -109,14 +104,13 @@ class StringsManager {
               parameters = List.from(value['parameters']);
             }
 
-            // String with parameters
             if ((value as Map).containsKey('value')) {
               strings.add(StringModel(
                 key: key,
                 value: value['value'],
               ));
             }
-            // Quantity String
+          
             else if (value.containsKey('quantityValues')) {
               List<QuantityStringModel> quantityValues = [];
 

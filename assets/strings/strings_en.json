@@ -3,7 +3,8 @@
     "strings": [
         {
             "@_COMMON_": {},
-            "common_app_title": "Carpolling"
+            "common_app_title": "Carpooling",
+            "common_login_title": "Login Page"
         }
     ]
 }

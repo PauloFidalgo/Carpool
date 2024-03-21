@@ -22,10 +22,6 @@ StringModel _$StringModelFromJson(Map<String, dynamic> json) {
 mixin _$StringModel {
   String get key => throw _privateConstructorUsedError;
   String get value => throw _privateConstructorUsedError;
-  List<String>? get parameters => throw _privateConstructorUsedError;
-  List<QuantityStringModel>? get quantityValues =>
-      throw _privateConstructorUsedError;
-  String? get quantityParameter => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,12 +35,7 @@ abstract class $StringModelCopyWith<$Res> {
           StringModel value, $Res Function(StringModel) then) =
       _$StringModelCopyWithImpl<$Res, StringModel>;
   @useResult
-  $Res call(
-      {String key,
-      String value,
-      List<String>? parameters,
-      List<QuantityStringModel>? quantityValues,
-      String? quantityParameter});
+  $Res call({String key, String value});
 }
 
 /// @nodoc
@@ -62,9 +53,6 @@ class _$StringModelCopyWithImpl<$Res, $Val extends StringModel>
   $Res call({
     Object? key = null,
     Object? value = null,
-    Object? parameters = freezed,
-    Object? quantityValues = freezed,
-    Object? quantityParameter = freezed,
   }) {
     return _then(_value.copyWith(
       key: null == key
@@ -75,18 +63,6 @@ class _$StringModelCopyWithImpl<$Res, $Val extends StringModel>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-      parameters: freezed == parameters
-          ? _value.parameters
-          : parameters // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      quantityValues: freezed == quantityValues
-          ? _value.quantityValues
-          : quantityValues // ignore: cast_nullable_to_non_nullable
-              as List<QuantityStringModel>?,
-      quantityParameter: freezed == quantityParameter
-          ? _value.quantityParameter
-          : quantityParameter // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 }
@@ -99,12 +75,7 @@ abstract class _$$StringModelImplCopyWith<$Res>
       __$$StringModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String key,
-      String value,
-      List<String>? parameters,
-      List<QuantityStringModel>? quantityValues,
-      String? quantityParameter});
+  $Res call({String key, String value});
 }
 
 /// @nodoc
@@ -120,9 +91,6 @@ class __$$StringModelImplCopyWithImpl<$Res>
   $Res call({
     Object? key = null,
     Object? value = null,
-    Object? parameters = freezed,
-    Object? quantityValues = freezed,
-    Object? quantityParameter = freezed,
   }) {
     return _then(_$StringModelImpl(
       key: null == key
@@ -133,18 +101,6 @@ class __$$StringModelImplCopyWithImpl<$Res>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-      parameters: freezed == parameters
-          ? _value._parameters
-          : parameters // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      quantityValues: freezed == quantityValues
-          ? _value._quantityValues
-          : quantityValues // ignore: cast_nullable_to_non_nullable
-              as List<QuantityStringModel>?,
-      quantityParameter: freezed == quantityParameter
-          ? _value.quantityParameter
-          : quantityParameter // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -152,15 +108,7 @@ class __$$StringModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$StringModelImpl extends _StringModel {
-  const _$StringModelImpl(
-      {required this.key,
-      required this.value,
-      final List<String>? parameters,
-      final List<QuantityStringModel>? quantityValues,
-      this.quantityParameter})
-      : _parameters = parameters,
-        _quantityValues = quantityValues,
-        super._();
+  const _$StringModelImpl({required this.key, required this.value}) : super._();
 
   factory _$StringModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$StringModelImplFromJson(json);
@@ -169,32 +117,10 @@ class _$StringModelImpl extends _StringModel {
   final String key;
   @override
   final String value;
-  final List<String>? _parameters;
-  @override
-  List<String>? get parameters {
-    final value = _parameters;
-    if (value == null) return null;
-    if (_parameters is EqualUnmodifiableListView) return _parameters;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<QuantityStringModel>? _quantityValues;
-  @override
-  List<QuantityStringModel>? get quantityValues {
-    final value = _quantityValues;
-    if (value == null) return null;
-    if (_quantityValues is EqualUnmodifiableListView) return _quantityValues;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  @override
-  final String? quantityParameter;
 
   @override
   String toString() {
-    return 'StringModel(key: $key, value: $value, parameters: $parameters, quantityValues: $quantityValues, quantityParameter: $quantityParameter)';
+    return 'StringModel(key: $key, value: $value)';
   }
 
   @override
@@ -203,24 +129,12 @@ class _$StringModelImpl extends _StringModel {
         (other.runtimeType == runtimeType &&
             other is _$StringModelImpl &&
             (identical(other.key, key) || other.key == key) &&
-            (identical(other.value, value) || other.value == value) &&
-            const DeepCollectionEquality()
-                .equals(other._parameters, _parameters) &&
-            const DeepCollectionEquality()
-                .equals(other._quantityValues, _quantityValues) &&
-            (identical(other.quantityParameter, quantityParameter) ||
-                other.quantityParameter == quantityParameter));
+            (identical(other.value, value) || other.value == value));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      key,
-      value,
-      const DeepCollectionEquality().hash(_parameters),
-      const DeepCollectionEquality().hash(_quantityValues),
-      quantityParameter);
+  int get hashCode => Object.hash(runtimeType, key, value);
 
   @JsonKey(ignore: true)
   @override
@@ -239,10 +153,7 @@ class _$StringModelImpl extends _StringModel {
 abstract class _StringModel extends StringModel {
   const factory _StringModel(
       {required final String key,
-      required final String value,
-      final List<String>? parameters,
-      final List<QuantityStringModel>? quantityValues,
-      final String? quantityParameter}) = _$StringModelImpl;
+      required final String value}) = _$StringModelImpl;
   const _StringModel._() : super._();
 
   factory _StringModel.fromJson(Map<String, dynamic> json) =
@@ -252,12 +163,6 @@ abstract class _StringModel extends StringModel {
   String get key;
   @override
   String get value;
-  @override
-  List<String>? get parameters;
-  @override
-  List<QuantityStringModel>? get quantityValues;
-  @override
-  String? get quantityParameter;
   @override
   @JsonKey(ignore: true)
   _$$StringModelImplCopyWith<_$StringModelImpl> get copyWith =>

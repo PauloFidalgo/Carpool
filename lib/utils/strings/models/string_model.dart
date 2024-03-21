@@ -1,5 +1,3 @@
-import 'package:collection/collection.dart';
-import 'quantity_string_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'string_model.freezed.dart';

@@ -13,3 +13,4 @@ const appLanguages = [
 
 // Strings Keys
 const String common_app_title = "common_app_title";
+const String common_login_title = "common_login_title";

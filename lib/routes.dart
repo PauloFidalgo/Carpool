@@ -1,7 +1,9 @@
-
+import 'dart:js_util';
 
 import 'package:carpool/repositories/home_page.dart';
 import 'package:carpool/repositories/home_page/home_page_logic.dart';
+import 'package:carpool/repositories/login_page.dart';
+import 'package:carpool/repositories/login_page/login_page_logic.dart';
 import 'package:carpool/theme/app_colors.dart';
 import 'package:carpool/theme/app_style.dart';
 import 'package:carpool/ui/app_bar.dart';
@@ -23,13 +25,23 @@ class Routes {
 
     // Home
     if (name == HomePage.routeName) {
-      final bool? pushedFromOnboardingUser = args as bool?;
-
       return route(
         BlocProvider(
-          create: (context) => HomePageLogic(
+          create: (context) => HomePageLogic(newObject()),
+          child: HomePage(
+            title: 'ibrilhos',
           ),
-          child: HomePage(),
+        ),
+      );
+    }
+
+    if (name == LoginPage.routeName) {
+      return route(
+        BlocProvider(
+          create: (context) => LoginPageLogic(
+            newObject(),
+          ),
+          child: LoginPage(title: 'ibtimbt'),
         ),
       );
     }
@@ -53,4 +65,3 @@ class Routes {
     );
   }
 }
-

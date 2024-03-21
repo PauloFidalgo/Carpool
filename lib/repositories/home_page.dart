@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  static const String routeName = '/home';
+import 'home_page/home_page_state.dart';
+
+class HomePage extends StatefulWidget {
+  static const routeName = '/home';
+  const HomePage({super.key, required this.title});
+  final String title;
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-      ),
-      body: Center(
-        child: Text('Home Page'),
-      ),
-    );
-  }
+  State<HomePage> createState() => HomePageState();
 }
