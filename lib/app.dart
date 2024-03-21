@@ -1,56 +1,63 @@
-import 'package:carpool/routes.dart';
-import 'package:carpool/theme/app_theme.dart';
-import 'package:carpool/utils/strings/delegates/strings_delegates.dart';
-import 'package:carpool/utils/strings/language_preferences.dart';
-import 'package:flutter/foundation.dart';
+import 'package:carpool/repositories/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
+
 import 'logic/language_logic.dart';
-import 'utils/strings/managers/strings_managers.dart';
+import 'main.dart';
+import 'routes.dart';
+import 'theme/app_theme.dart';
+import 'utils/strings/delegates/strings_delegates.dart';
+import 'utils/strings/language_preferences.dart';
 
+class _AppState extends State<MyApp> with WidgetsBindingObserver {
+  late Brightness _currentTheme;
+  late StringsDelegate _currentStringsDelegate;
 
-class App extends StatefulWidget {
-  final StringsDelegate stringsDelegate = StringsDelegate();
-
-  App({
-    super.key,
-  });
-
-  @override
-  State<App> createState() => _AppState();
-}
-
-class _AppState extends State<App> with WidgetsBindingObserver {
+  final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+  
   @override
   void initState() {
     super.initState();
-
-    WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance?.addObserver(this);
+    _loadSettings();
   }
 
+  Future<void> _loadSettings() async {
+    // Retrieve language and theme settings
+    final String? selectedLanguageCode = await LanguagePreferences.getPreferredLanguage();
+    final Brightness? savedThemeMode = await _loadThemeMode();
+
+    // Apply language and theme settings
+    setState(() {
+      _currentTheme = savedThemeMode ?? Brightness.light; // Default to light mode if not set
+      _currentStringsDelegate = StringsDelegate(); // Default to English if not set
+    });
+  }
+
+  Future<Brightness?> _loadThemeMode() async {
+    // Retrieve theme mode from persistent storage
+    // Implement your storage retrieval logic here (e.g., SharedPreferences)
+    // Return null if the value is not set
+    // For example:
+    // final bool? isDarkMode = await SomeStorage.getBool('isDarkMode');
+    // return isDarkMode ? Brightness.dark : Brightness.light;
+    return null; // Placeholder until you implement storage logic
+  }
 
   @override
   Widget build(BuildContext context) {
     return Phoenix(
-      child: BlocBuilder(
-        builder: (context, state) {
-          final String selectedLanguageCode = LanguagePreferences.getPreferredLanguage();
-
-          return Phoenix(
-              child: MaterialApp(
-                title: 'Carpool',
-                theme: AppTheme.themeData(Brightness.dark),
-                localizationsDelegates: [
-                  widget.stringsDelegate,
-                ],
-                onGenerateRoute: Routes.generateRoute,
-                initialRoute: SplashScreenPage.routeName,
-                debugShowCheckedModeBanner: false,
-                navigatorKey: navigatorKey,
-              ),
-          );
-        },
+      child: MaterialApp(
+        title: 'Carpool',
+        theme: AppTheme.themeData(_currentTheme),
+        localizationsDelegates: [
+          _currentStringsDelegate,
+        ],
+        onGenerateRoute: Routes.generateRoute,
+        initialRoute: HomePage.routeName,
+        debugShowCheckedModeBanner: false,
+        navigatorKey: navigatorKey,
       ),
     );
   }

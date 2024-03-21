@@ -10,28 +10,27 @@ import 'package:flutter/material.dart';
 
 import 'app_preferences.dart';
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Initialize preferences manager
-  await PreferencesManager.instance.init();
+  PreferencesManager.instance.init();
 
   // Get the selected language from preferences
   String? selectedLanguage = PreferencesManager.instance.getSelectedLanguage();
 
   // Initialize StringsManager with the selected language
-  await StringsManager.instance.initAsync(
+  StringsManager.instance.initAsync(
     appLanguages: [
       AppLanguageModel(languageCode: selectedLanguage ?? 'en', languageStringsJsonPath: 'strings_en.json'),
     ],
   );
 
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget{
 
   // This widget is the root of your application.
   @override
@@ -47,6 +46,12 @@ class MyApp extends StatelessWidget {
       ),
       home: const MyHomePage(title: 'Home Page'),
     );
+  }
+  
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    throw UnimplementedError();
   }
 }
 

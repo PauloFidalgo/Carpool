@@ -1,6 +1,7 @@
 
 
 import 'package:carpool/repositories/home_page.dart';
+import 'package:carpool/repositories/home_page/home_page_logic.dart';
 import 'package:carpool/theme/app_colors.dart';
 import 'package:carpool/theme/app_style.dart';
 import 'package:carpool/ui/app_bar.dart';
@@ -27,20 +28,8 @@ class Routes {
       return route(
         BlocProvider(
           create: (context) => HomePageLogic(
-            homesCubit: RepositoryProvider.of<HomesCubit>(context),
-            feedbackRepository: RepositoryProvider.of<FeedbackRepository>(context),
-            devicesRepository: RepositoryProvider.of<DevicesRepository>(context),
-            remoteConfigRepository: RepositoryProvider.of<RemoteConfigRepository>(context),
-            roomsRepository: RepositoryProvider.of<RoomsRepository>(context),
-            scenariosRepository: RepositoryProvider.of<ScenariosRepository>(context),
-            invitesRepository: RepositoryProvider.of<InvitesRepository>(context),
-            settingsRepository: RepositoryProvider.of<SettingsRepository>(context),
-            securityRepository: RepositoryProvider.of<SecurityRepository>(context),
-            userAccountRepository: RepositoryProvider.of<UserAccountRepository>(context),
-            helpRepository: RepositoryProvider.of<HelpRepository>(context),
-            pushedFromOnboardingUser: pushedFromOnboardingUser ?? false,
           ),
-          child: const HomePage(),
+          child: HomePage(),
         ),
       );
     }
@@ -64,3 +53,4 @@ class Routes {
     );
   }
 }
+
