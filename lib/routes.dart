@@ -5,6 +5,9 @@ import 'package:carpool/repositories/home_page/home_page_state.dart';
 import 'package:carpool/repositories/login_page.dart';
 import 'package:carpool/repositories/login_page/login_page_logic.dart';
 import 'package:carpool/repositories/login_page/login_page_state.dart';
+import 'package:carpool/repositories/settings_page.dart';
+import 'package:carpool/repositories/settings_page/settings_page_logic.dart';
+import 'package:carpool/repositories/settings_page/settings_page_state.dart';
 import 'package:carpool/theme/app_colors.dart';
 import 'package:carpool/theme/app_style.dart';
 import 'package:flutter/cupertino.dart';
@@ -43,6 +46,17 @@ class Routes {
             LoginPageState(),
           ),
           child: LoginPage(),
+        ),
+      );
+    }
+
+    if (name == SettingsPage.routeName) {
+      return route(
+        BlocProvider(
+          create: (context) => SettingsPageLogic(
+            SettingsPageState(),
+          ),
+          child: SettingsPage(),
         ),
       );
     }

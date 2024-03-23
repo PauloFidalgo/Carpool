@@ -1,4 +1,5 @@
 import 'package:carpool/repositories/home_page.dart';
+import 'package:carpool/repositories/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';

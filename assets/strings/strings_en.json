@@ -4,7 +4,8 @@
         {
             "@_COMMON_": {},
             "common_app_title": "Carpooling",
-            "common_login_title": "Login Page"
+            "common_login_title": "Login Page",
+            "common_settings_title": "Settings Page",
         }
     ]
 }
