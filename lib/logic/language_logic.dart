@@ -7,13 +7,12 @@ part 'language_state.dart';
 part 'language_logic.freezed.dart';
 
 enum AppLanguage {
-  system,
   en,
   pt,
 }
 
 class LanguageLogic extends Cubit<LanguageState> {
-  LanguageLogic() : super(const LanguageState.state(appLanguage: AppLanguage.system));
+  LanguageLogic() : super(const LanguageState.state(appLanguage: AppLanguage.en));
 
   AppLanguage get currentLanguage => state.appLanguage;
 

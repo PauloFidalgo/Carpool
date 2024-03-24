@@ -1,10 +1,8 @@
 
 import 'package:carpool/repositories/home_page.dart';
 import 'package:carpool/repositories/home_page/home_page_logic.dart';
-import 'package:carpool/repositories/home_page/home_page_state.dart';
 import 'package:carpool/repositories/login_page.dart';
 import 'package:carpool/repositories/login_page/login_page_logic.dart';
-import 'package:carpool/repositories/login_page/login_page_state.dart';
 import 'package:carpool/theme/app_colors.dart';
 import 'package:carpool/theme/app_style.dart';
 import 'package:flutter/cupertino.dart';
@@ -26,12 +24,8 @@ class Routes {
     if (name == HomePage.routeName) {
       return route(
         BlocProvider(
-          create: (context) => HomePageLogic(
-            HomePageState(),
-          ),
-          child: HomePage(
-            title: 'ibrilhos',
-          ),
+          create: (context) => HomePageLogic(),
+          child: const HomePage(),
         ),
       );
     }
@@ -39,10 +33,8 @@ class Routes {
     if (name == LoginPage.routeName) {
       return route(
         BlocProvider(
-          create: (context) => LoginPageLogic(
-            LoginPageState(),
-          ),
-          child: LoginPage(),
+          create: (context) => LoginPageLogic(),
+          child: const LoginPage(),
         ),
       );
     }
