@@ -3,6 +3,8 @@ import 'package:carpool/utils/strings/managers/strings_managers.dart';
 import 'package:carpool/utils/strings/models/app_language_model.dart';
 import 'package:carpool/utils/strings/strings_constants.dart';
 import 'package:flutter/material.dart';
+import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,27 +26,8 @@ void main() {
 
 void mainCommon() async {
   await StringsManager.instance.initAsync(appLanguages: appLanguages);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
   runApp(App());
 }
-/*
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Carpolling App',
-      localizationsDelegates: [
-        StringsDelegate(),
-      ],
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: HomePage(
-        title: 'Irbilhos',
-      ),
-      onGenerateRoute: Routes.generateRoute,
-    );
-  }
-}
-*/
+
+

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'login_page_logic.dart';
+part of 'signup_page_logic.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$LoginPageState {
+mixin _$SignupPageState {
   bool get isDarkMode => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -35,39 +35,39 @@ mixin _$LoginPageState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(LoginPageStateLoaded value) loaded,
+    required TResult Function(SignupPageStateLoaded value) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LoginPageStateLoaded value)? loaded,
+    TResult? Function(SignupPageStateLoaded value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoginPageStateLoaded value)? loaded,
+    TResult Function(SignupPageStateLoaded value)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $LoginPageStateCopyWith<LoginPageState> get copyWith =>
+  $SignupPageStateCopyWith<SignupPageState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LoginPageStateCopyWith<$Res> {
-  factory $LoginPageStateCopyWith(
-          LoginPageState value, $Res Function(LoginPageState) then) =
-      _$LoginPageStateCopyWithImpl<$Res, LoginPageState>;
+abstract class $SignupPageStateCopyWith<$Res> {
+  factory $SignupPageStateCopyWith(
+          SignupPageState value, $Res Function(SignupPageState) then) =
+      _$SignupPageStateCopyWithImpl<$Res, SignupPageState>;
   @useResult
   $Res call({bool isDarkMode});
 }
 
 /// @nodoc
-class _$LoginPageStateCopyWithImpl<$Res, $Val extends LoginPageState>
-    implements $LoginPageStateCopyWith<$Res> {
-  _$LoginPageStateCopyWithImpl(this._value, this._then);
+class _$SignupPageStateCopyWithImpl<$Res, $Val extends SignupPageState>
+    implements $SignupPageStateCopyWith<$Res> {
+  _$SignupPageStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -89,22 +89,23 @@ class _$LoginPageStateCopyWithImpl<$Res, $Val extends LoginPageState>
 }
 
 /// @nodoc
-abstract class _$$LoginPageStateLoadedImplCopyWith<$Res>
-    implements $LoginPageStateCopyWith<$Res> {
-  factory _$$LoginPageStateLoadedImplCopyWith(_$LoginPageStateLoadedImpl value,
-          $Res Function(_$LoginPageStateLoadedImpl) then) =
-      __$$LoginPageStateLoadedImplCopyWithImpl<$Res>;
+abstract class _$$SignupPageStateLoadedImplCopyWith<$Res>
+    implements $SignupPageStateCopyWith<$Res> {
+  factory _$$SignupPageStateLoadedImplCopyWith(
+          _$SignupPageStateLoadedImpl value,
+          $Res Function(_$SignupPageStateLoadedImpl) then) =
+      __$$SignupPageStateLoadedImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isDarkMode});
 }
 
 /// @nodoc
-class __$$LoginPageStateLoadedImplCopyWithImpl<$Res>
-    extends _$LoginPageStateCopyWithImpl<$Res, _$LoginPageStateLoadedImpl>
-    implements _$$LoginPageStateLoadedImplCopyWith<$Res> {
-  __$$LoginPageStateLoadedImplCopyWithImpl(_$LoginPageStateLoadedImpl _value,
-      $Res Function(_$LoginPageStateLoadedImpl) _then)
+class __$$SignupPageStateLoadedImplCopyWithImpl<$Res>
+    extends _$SignupPageStateCopyWithImpl<$Res, _$SignupPageStateLoadedImpl>
+    implements _$$SignupPageStateLoadedImplCopyWith<$Res> {
+  __$$SignupPageStateLoadedImplCopyWithImpl(_$SignupPageStateLoadedImpl _value,
+      $Res Function(_$SignupPageStateLoadedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +113,7 @@ class __$$LoginPageStateLoadedImplCopyWithImpl<$Res>
   $Res call({
     Object? isDarkMode = null,
   }) {
-    return _then(_$LoginPageStateLoadedImpl(
+    return _then(_$SignupPageStateLoadedImpl(
       isDarkMode: null == isDarkMode
           ? _value.isDarkMode
           : isDarkMode // ignore: cast_nullable_to_non_nullable
@@ -123,8 +124,8 @@ class __$$LoginPageStateLoadedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoginPageStateLoadedImpl implements LoginPageStateLoaded {
-  const _$LoginPageStateLoadedImpl({this.isDarkMode = false});
+class _$SignupPageStateLoadedImpl implements SignupPageStateLoaded {
+  const _$SignupPageStateLoadedImpl({this.isDarkMode = false});
 
   @override
   @JsonKey()
@@ -132,14 +133,14 @@ class _$LoginPageStateLoadedImpl implements LoginPageStateLoaded {
 
   @override
   String toString() {
-    return 'LoginPageState.loaded(isDarkMode: $isDarkMode)';
+    return 'SignupPageState.loaded(isDarkMode: $isDarkMode)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoginPageStateLoadedImpl &&
+            other is _$SignupPageStateLoadedImpl &&
             (identical(other.isDarkMode, isDarkMode) ||
                 other.isDarkMode == isDarkMode));
   }
@@ -150,10 +151,9 @@ class _$LoginPageStateLoadedImpl implements LoginPageStateLoaded {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoginPageStateLoadedImplCopyWith<_$LoginPageStateLoadedImpl>
-      get copyWith =>
-          __$$LoginPageStateLoadedImplCopyWithImpl<_$LoginPageStateLoadedImpl>(
-              this, _$identity);
+  _$$SignupPageStateLoadedImplCopyWith<_$SignupPageStateLoadedImpl>
+      get copyWith => __$$SignupPageStateLoadedImplCopyWithImpl<
+          _$SignupPageStateLoadedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -186,7 +186,7 @@ class _$LoginPageStateLoadedImpl implements LoginPageStateLoaded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(LoginPageStateLoaded value) loaded,
+    required TResult Function(SignupPageStateLoaded value) loaded,
   }) {
     return loaded(this);
   }
@@ -194,7 +194,7 @@ class _$LoginPageStateLoadedImpl implements LoginPageStateLoaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LoginPageStateLoaded value)? loaded,
+    TResult? Function(SignupPageStateLoaded value)? loaded,
   }) {
     return loaded?.call(this);
   }
@@ -202,7 +202,7 @@ class _$LoginPageStateLoadedImpl implements LoginPageStateLoaded {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoginPageStateLoaded value)? loaded,
+    TResult Function(SignupPageStateLoaded value)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -212,14 +212,14 @@ class _$LoginPageStateLoadedImpl implements LoginPageStateLoaded {
   }
 }
 
-abstract class LoginPageStateLoaded implements LoginPageState {
-  const factory LoginPageStateLoaded({final bool isDarkMode}) =
-      _$LoginPageStateLoadedImpl;
+abstract class SignupPageStateLoaded implements SignupPageState {
+  const factory SignupPageStateLoaded({final bool isDarkMode}) =
+      _$SignupPageStateLoadedImpl;
 
   @override
   bool get isDarkMode;
   @override
   @JsonKey(ignore: true)
-  _$$LoginPageStateLoadedImplCopyWith<_$LoginPageStateLoadedImpl>
+  _$$SignupPageStateLoadedImplCopyWith<_$SignupPageStateLoadedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
