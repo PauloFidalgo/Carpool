@@ -3,6 +3,8 @@ import 'package:carpool/utils/strings/managers/strings_managers.dart';
 import 'package:carpool/utils/strings/models/app_language_model.dart';
 import 'package:carpool/utils/strings/strings_constants.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,8 +24,9 @@ void main() {
   mainCommon();
 }
 
-void mainCommon() async {
+Future<void> mainCommon() async {
   await StringsManager.instance.initAsync(appLanguages: appLanguages);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
   runApp(App());
 }
 /*

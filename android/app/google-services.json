@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "327598197311",
+    "firebase_url": "https://carpool-fbb36-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "carpool-fbb36",
+    "storage_bucket": "carpool-fbb36.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327598197311:android:2185bd3a76f8436c50c68a",
+        "android_client_info": {
+          "package_name": "com.example.carpoll"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZ-O5q1vuTG-m4Y3KYNb0w6Ohz8yNyrbA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

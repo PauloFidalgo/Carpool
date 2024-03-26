@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:overlay_support/overlay_support.dart';
-
 import 'logic/language_logic.dart';
 import 'routes.dart';
 import 'theme/app_theme.dart';
@@ -15,7 +14,7 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 class App extends StatefulWidget {
   final StringsDelegate stringsDelegate = StringsDelegate();
 
-  App({Key? key}) : super(key: key);
+  App({super.key});
 
   @override
   State<App> createState() => _AppState();
