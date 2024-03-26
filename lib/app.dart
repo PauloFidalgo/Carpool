@@ -1,4 +1,4 @@
-import 'package:carpool/repositories/home_page.dart';
+import 'package:carpool/repositories/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
@@ -49,7 +49,7 @@ class _AppState extends State<App> with WidgetsBindingObserver {
                       widget.stringsDelegate,
                     ],
                     onGenerateRoute: Routes.generateRoute,
-                    initialRoute: HomePage.routeName,
+                    initialRoute: LoginPage.routeName,
                     navigatorKey: navigatorKey,
                   ),
                 ),

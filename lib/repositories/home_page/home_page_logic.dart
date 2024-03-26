@@ -6,5 +6,4 @@ part 'home_page_logic.freezed.dart';
 
 class HomePageLogic extends Cubit<HomePageState> {
   HomePageLogic() : super(HomePageState.loaded());
-
 }
