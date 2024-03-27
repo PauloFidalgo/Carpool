@@ -1,7 +1,6 @@
 import 'package:carpool/repositories/login_page.dart';
 import 'package:carpool/ui/app_bar.dart';
 import 'package:carpool/ui/app_button.dart';
-import 'package:carpool/ui/app_main_button.dart';
 import 'package:carpool/utils/strings/managers/strings_managers.dart';
 import 'package:carpool/utils/strings/strings_constants.dart';
 import 'package:flutter/material.dart';
@@ -25,35 +24,34 @@ class _HomePageState extends State<HomePage> {
         onNotificationTap: () => {},
         onSettingsTap: () => {},
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          CarpoolButton.primary(
-            title: "Primary Light",
-            onTap: () {
-              Navigator.of(context).pushNamed(LoginPage.routeName);
-            },
-          ),
-          CarpoolButton.primaryDark(
-            title: "Primary Dark",
-            onTap: () {},
-          ),
-          CarpoolButton.secondary(
-            title: "Secondary Light",
-            onTap: () {},
-          ),
-          CarpoolButton.secondaryDark(
-            title: "Secondary Dark",
-            onTap: () {},
-          ),
-          HexagonalButton.primaryDark(
-            onPressed: () {},
-          ),
-          HexagonalButton.primary(
-            onPressed: () {},
-          ),
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CarpoolButton.primary(
+              title: "Primary Light",
+              onTap: () {
+                Navigator.of(context).pushNamed(LoginPage.routeName);
+              },
+            ),
+            const SizedBox(height: 15,),
+            CarpoolButton.primaryDark(
+              title: "Primary Dark",
+              onTap: () {},
+            ),
+            const SizedBox(height: 15,),
+            CarpoolButton.secondary(
+              title: "Secondary Light",
+              onTap: () {},
+            ),
+            const SizedBox(height: 15,),
+            CarpoolButton.secondaryDark(
+              title: "Secondary Dark",
+              onTap: () {},
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: CarpoolBottomBar(),
     );

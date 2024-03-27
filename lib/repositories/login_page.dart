@@ -35,6 +35,7 @@ class _LoginPageState extends State<LoginPage> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const SizedBox(height: 100,),
                 Text("Welcome back",
                     style: isDarkMode ? AppStyle.h1Dark : AppStyle.h1Light),
                 const SizedBox(height: AppSizes.sm),
@@ -123,9 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                           String password = _passwordController.text.trim();
 
                           if (login.isNotEmpty && password.isNotEmpty) {
-                              cubit.signInWithEmailAndPassword(
-                                login,
-                                password);
+                            cubit.signInWithEmailAndPassword(login, password);
                           }
                         },
                         child: Text(
