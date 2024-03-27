@@ -4,7 +4,6 @@ import 'package:carpool/repositories/login_page.dart';
 import 'package:carpool/theme/app_colors.dart';
 import 'package:carpool/ui/app_bar.dart';
 import 'package:carpool/ui/app_button.dart';
-import 'package:carpool/ui/app_main_button.dart';
 import 'package:carpool/utils/strings/managers/strings_managers.dart';
 import 'package:carpool/utils/strings/strings_constants.dart';
 import 'package:flutter/material.dart';
