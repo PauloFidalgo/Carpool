@@ -1,3 +1,4 @@
+import 'package:carpool/logic/theme_logic.dart';
 import 'package:carpool/repositories/signup_page/signup_page_logic.dart';
 import 'package:carpool/theme/app_sizes.dart';
 import 'package:carpool/theme/app_style.dart';
@@ -38,7 +39,12 @@ class _SignupPageState extends State<SignupPage> {
 
   @override
   Widget _buildBody({required BuildContext context, required SignupPageState state}) {
-    final bool isDarkMode = state.isDarkMode;
+    
+    final themeLogic = BlocProvider.of<ThemeLogic>(context);
+    final currentTheme = themeLogic.state.appTheme;
+    final bool isDarkMode = currentTheme == AppThemeModes.dark ? true : false; 
+    
+
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(

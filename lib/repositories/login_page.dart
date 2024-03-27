@@ -1,4 +1,11 @@
+import 'dart:ffi';
+
+import 'package:carpool/logic/theme_logic.dart';
+import 'package:carpool/repositories/home_page.dart';
 import 'package:carpool/repositories/login_page/login_page_logic.dart';
+import 'package:carpool/repositories/signup_page.dart';
+import 'package:carpool/repositories/signup_page/signup_page_logic.dart';
+import 'package:carpool/routes.dart';
 import 'package:carpool/theme/app_colors.dart';
 import 'package:carpool/theme/app_sizes.dart';
 import 'package:carpool/theme/app_style.dart';
@@ -19,10 +26,11 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  @override
   Widget _buildBody(
       {required BuildContext context, required LoginPageState state}) {
-    final bool isDarkMode = state.isDarkMode;
+    final themeLogic = BlocProvider.of<ThemeLogic>(context);
+    final currentTheme = themeLogic.state.appTheme;
+    final bool isDarkMode = currentTheme == AppThemeModes.dark ? true : false;
     final cubit = context.read<LoginPageLogic>();
 
     TextEditingController _passwordController = TextEditingController();
@@ -123,9 +131,7 @@ class _LoginPageState extends State<LoginPage> {
                           String password = _passwordController.text.trim();
 
                           if (login.isNotEmpty && password.isNotEmpty) {
-                              cubit.signInWithEmailAndPassword(
-                                login,
-                                password);
+                            cubit.signInWithEmailAndPassword(login, password);
                           }
                         },
                         child: Text(
@@ -142,7 +148,11 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(
                       width: double.infinity,
                       child: OutlinedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pushNamed(
+                            SignupPage.routeName,
+                          );
+                        },
                         child: Text(
                           "Create Account",
                           style:
@@ -150,6 +160,15 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
+                    IconButton(
+                      onPressed: () => {
+                        Navigator.of(context).pushNamed(HomePage.routeName)
+                      },
+                      icon: const Icon(
+                        Icons.iron,
+                        color: Colors.blue,
+                      ),
+                    )
                   ],
                 ),
               ),

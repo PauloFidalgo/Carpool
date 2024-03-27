@@ -16,19 +16,20 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HomePageState {
+  bool get isDarkMode => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() loaded,
+    required TResult Function(bool isDarkMode) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loaded,
+    TResult? Function(bool isDarkMode)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loaded,
+    TResult Function(bool isDarkMode)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +49,10 @@ mixin _$HomePageState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $HomePageStateCopyWith<HomePageState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -55,6 +60,8 @@ abstract class $HomePageStateCopyWith<$Res> {
   factory $HomePageStateCopyWith(
           HomePageState value, $Res Function(HomePageState) then) =
       _$HomePageStateCopyWithImpl<$Res, HomePageState>;
+  @useResult
+  $Res call({bool isDarkMode});
 }
 
 /// @nodoc
@@ -66,13 +73,30 @@ class _$HomePageStateCopyWithImpl<$Res, $Val extends HomePageState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isDarkMode = null,
+  }) {
+    return _then(_value.copyWith(
+      isDarkMode: null == isDarkMode
+          ? _value.isDarkMode
+          : isDarkMode // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$HomePageLoadedStateImplCopyWith<$Res> {
+abstract class _$$HomePageLoadedStateImplCopyWith<$Res>
+    implements $HomePageStateCopyWith<$Res> {
   factory _$$HomePageLoadedStateImplCopyWith(_$HomePageLoadedStateImpl value,
           $Res Function(_$HomePageLoadedStateImpl) then) =
       __$$HomePageLoadedStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({bool isDarkMode});
 }
 
 /// @nodoc
@@ -82,52 +106,78 @@ class __$$HomePageLoadedStateImplCopyWithImpl<$Res>
   __$$HomePageLoadedStateImplCopyWithImpl(_$HomePageLoadedStateImpl _value,
       $Res Function(_$HomePageLoadedStateImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isDarkMode = null,
+  }) {
+    return _then(_$HomePageLoadedStateImpl(
+      isDarkMode: null == isDarkMode
+          ? _value.isDarkMode
+          : isDarkMode // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$HomePageLoadedStateImpl implements HomePageLoadedState {
-  const _$HomePageLoadedStateImpl();
+  const _$HomePageLoadedStateImpl({this.isDarkMode = false});
+
+  @override
+  @JsonKey()
+  final bool isDarkMode;
 
   @override
   String toString() {
-    return 'HomePageState.loaded()';
+    return 'HomePageState.loaded(isDarkMode: $isDarkMode)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HomePageLoadedStateImpl);
+            other is _$HomePageLoadedStateImpl &&
+            (identical(other.isDarkMode, isDarkMode) ||
+                other.isDarkMode == isDarkMode));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, isDarkMode);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HomePageLoadedStateImplCopyWith<_$HomePageLoadedStateImpl> get copyWith =>
+      __$$HomePageLoadedStateImplCopyWithImpl<_$HomePageLoadedStateImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() loaded,
+    required TResult Function(bool isDarkMode) loaded,
   }) {
-    return loaded();
+    return loaded(isDarkMode);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loaded,
+    TResult? Function(bool isDarkMode)? loaded,
   }) {
-    return loaded?.call();
+    return loaded?.call(isDarkMode);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loaded,
+    TResult Function(bool isDarkMode)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded();
+      return loaded(isDarkMode);
     }
     return orElse();
   }
@@ -162,5 +212,13 @@ class _$HomePageLoadedStateImpl implements HomePageLoadedState {
 }
 
 abstract class HomePageLoadedState implements HomePageState {
-  const factory HomePageLoadedState() = _$HomePageLoadedStateImpl;
+  const factory HomePageLoadedState({final bool isDarkMode}) =
+      _$HomePageLoadedStateImpl;
+
+  @override
+  bool get isDarkMode;
+  @override
+  @JsonKey(ignore: true)
+  _$$HomePageLoadedStateImplCopyWith<_$HomePageLoadedStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

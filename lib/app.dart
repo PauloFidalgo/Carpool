@@ -1,3 +1,5 @@
+import 'package:carpool/logic/theme_logic.dart';
+import 'package:carpool/repositories/home_page.dart';
 import 'package:carpool/repositories/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,26 +38,34 @@ class _AppState extends State<App> with WidgetsBindingObserver {
           BlocProvider(
             create: (context) => LanguageLogic(),
           ),
+          BlocProvider(
+            create: (context) => ThemeLogic(),
+          ),
         ],
         child: BlocBuilder<LanguageLogic, LanguageState>(
-            builder: (context, state) {
-
-              return Phoenix(
-                child: OverlaySupport(
-                  child: MaterialApp(
-                    title: 'SmartHome',
-                    theme: AppTheme.themeData(Brightness.dark),
-                    localizationsDelegates: [
-                      widget.stringsDelegate,
-                    ],
-                    onGenerateRoute: Routes.generateRoute,
-                    initialRoute: LoginPage.routeName,
-                    navigatorKey: navigatorKey,
+          builder: (context, state) {
+            return BlocBuilder<ThemeLogic, ThemeState>(
+              builder: (context, themeState) {
+                return Phoenix(
+                  child: OverlaySupport(
+                    child: MaterialApp(
+                      title: 'SmartHome',
+                      theme: themeState.appTheme == AppThemeModes.light
+                          ? AppTheme.themeData(Brightness.light)
+                          : AppTheme.themeData(Brightness.dark),
+                      localizationsDelegates: [
+                        widget.stringsDelegate,
+                      ],
+                      onGenerateRoute: Routes.generateRoute,
+                      initialRoute: HomePage.routeName,
+                      navigatorKey: navigatorKey,
+                    ),
                   ),
-                ),
-              );
-            },
-          ),
+                );
+              },
+            );
+          },
+        ),
       ),
     );
   }

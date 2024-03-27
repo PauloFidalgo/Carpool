@@ -5,5 +5,12 @@ part 'home_page_state.dart';
 part 'home_page_logic.freezed.dart';
 
 class HomePageLogic extends Cubit<HomePageState> {
-  HomePageLogic() : super(HomePageState.loaded());
+  final bool isDarkMode;
+
+  HomePageLogic({required this.isDarkMode}) : super(HomePageState.loaded(isDarkMode: isDarkMode));
+
+  void changeTheme() {
+    final bool newDarkMode = !state.isDarkMode;
+    emit(HomePageState.loaded(isDarkMode: newDarkMode));
+  }
 }

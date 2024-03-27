@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 
 import '../theme/app_colors.dart';
 
-class CarpoolButton extends StatelessWidget {
+enum ButtonTextSize {
+  high,
+  medium,
+  small
+}
 
+class CarpoolButton extends StatelessWidget {
   final VoidCallback onTap;
   final String title;
   final bool enabled;
@@ -12,6 +17,10 @@ class CarpoolButton extends StatelessWidget {
   final Widget? trailingWidget;
   final Color backgroundColor;
   final TextStyle textStyle;
+  final double borderRadius;
+  final double height;
+  final double width;
+  final ButtonTextSize textSize;
 
   const CarpoolButton({
     super.key,
@@ -22,94 +31,87 @@ class CarpoolButton extends StatelessWidget {
     this.trailingWidget,
     required this.backgroundColor,
     required this.textStyle,
+    this.borderRadius = 16,
+    this.height = 36,
+    this.width = 12,
+    this.textSize = ButtonTextSize.medium,
   });
+
+  static TextStyle _get_current_text_style(ButtonTextSize textSize, bool isDarkMode) {
+    switch (textSize) {
+      case ButtonTextSize.high: return isDarkMode ? AppStyle.primaryButtonDarkHigh : AppStyle.primaryButtonLightHigh;
+      case ButtonTextSize.medium: return isDarkMode ? AppStyle.primaryButtonDarkMedium : AppStyle.primaryButtonLightMedium;
+      case ButtonTextSize.small: return isDarkMode ? AppStyle.primaryButtonDarkSmall : AppStyle.primaryButtonLightSmall;
+    }
+  }
 
   factory CarpoolButton.primary({
     required String title,
     required VoidCallback onTap,
     bool enabled = true,
+    bool isDarkMode = false,
     Widget? leading,
     Widget? trailingWidget,
     TextStyle? textStyle,
     Color? backgroundColor,
+    double borderRadius = 16,
+    double height = 36,
+    double width = 12,
+    ButtonTextSize textSize = ButtonTextSize.medium,
   }) {
+    TextStyle textStyle = _get_current_text_style(textSize, isDarkMode);
+
     return CarpoolButton(
       title: title,
       enabled: enabled,
       leading: leading,
-      backgroundColor: AppColors.primaryButton,
+      backgroundColor: isDarkMode ? AppColors.primaryButtonDark : AppColors.primaryButton,
       trailingWidget: trailingWidget,
-      textStyle: AppStyle.primaryButtonLight,
+      textStyle: textStyle,
       onTap: onTap,
+      height: height,
+      width: width,
+      borderRadius: borderRadius,
     );
   }
 
-  factory CarpoolButton.primaryDark({
-    required String title,
-    required VoidCallback onTap,
-    bool enabled = true,
-    Widget? leading,
-    Widget? trailingWidget,
-    TextStyle? textStyle,
-    Color? backgroundColor,
-  }) {
-    return CarpoolButton(
-      title: title,
-      enabled: enabled,
-      textStyle: AppStyle.primaryButtonDark,
-      backgroundColor: AppColors.primaryButtonDark,
-      leading: leading,
-      trailingWidget: trailingWidget,
-      onTap: onTap,
-    );
-  }
 
   factory CarpoolButton.secondary({
     required String title,
     required VoidCallback onTap,
     bool enabled = true,
+    bool isDarkMode = false,
     Widget? leading,
     Widget? trailingWidget,
     TextStyle? textStyle,
     Color? backgroundColor,
+    double borderRadius = 16,
+    double height = 36,
+    double width = 12,
+    ButtonTextSize textSize = ButtonTextSize.medium,
   }) {
+    TextStyle textStyle = _get_current_text_style(textSize, isDarkMode);
+
     return CarpoolButton(
       title: title,
       enabled: enabled,
-      textStyle: AppStyle.secondaryButtonLight,
-      backgroundColor: AppColors.secondaryButton,
+      textStyle: textStyle,
+      backgroundColor: isDarkMode ? AppColors.secondaryButtonDark : AppColors.secondaryButton,
       leading: leading,
       trailingWidget: trailingWidget,
       onTap: onTap,
+      height: height,
+      width: width,
+      borderRadius: borderRadius,
     );
   }
 
-  factory CarpoolButton.secondaryDark({
-    required String title,
-    required VoidCallback onTap,
-    bool enabled = true,
-    Widget? leading,
-    Widget? trailingWidget,
-    TextStyle? textStyle,
-    Color? backgroundColor,
-  }) {
-    return CarpoolButton(
-      title: title,
-      enabled: enabled,
-      textStyle: AppStyle.secondaryButtonDark,
-      backgroundColor: AppColors.secondaryButtonDark,
-      leading: leading,
-      trailingWidget: trailingWidget,
-      onTap: onTap,
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
-    const double borderRadius =  16;
 
     return SizedBox(
-      height: 36,
+      height: height,
       child: RawMaterialButton(
         fillColor: backgroundColor,
         onPressed: enabled
@@ -129,7 +131,7 @@ class CarpoolButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            const SizedBox(width: 12.0),
+            SizedBox(width: width),
             leading ?? const SizedBox(),
             leading != null ? const SizedBox(width: 4) : const SizedBox(),
             Flexible(
@@ -144,7 +146,7 @@ class CarpoolButton extends StatelessWidget {
               ),
             ),
             trailingWidget ?? const SizedBox(),
-            const SizedBox(width: 12.0),
+            SizedBox(width: width),
           ],
         ),
       ),

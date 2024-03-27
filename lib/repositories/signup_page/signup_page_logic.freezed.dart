@@ -16,20 +16,19 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SignupPageState {
-  bool get isDarkMode => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isDarkMode) loaded,
+    required TResult Function() loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isDarkMode)? loaded,
+    TResult? Function()? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isDarkMode)? loaded,
+    TResult Function()? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -49,10 +48,6 @@ mixin _$SignupPageState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $SignupPageStateCopyWith<SignupPageState> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -60,8 +55,6 @@ abstract class $SignupPageStateCopyWith<$Res> {
   factory $SignupPageStateCopyWith(
           SignupPageState value, $Res Function(SignupPageState) then) =
       _$SignupPageStateCopyWithImpl<$Res, SignupPageState>;
-  @useResult
-  $Res call({bool isDarkMode});
 }
 
 /// @nodoc
@@ -73,31 +66,14 @@ class _$SignupPageStateCopyWithImpl<$Res, $Val extends SignupPageState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? isDarkMode = null,
-  }) {
-    return _then(_value.copyWith(
-      isDarkMode: null == isDarkMode
-          ? _value.isDarkMode
-          : isDarkMode // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$SignupPageStateLoadedImplCopyWith<$Res>
-    implements $SignupPageStateCopyWith<$Res> {
+abstract class _$$SignupPageStateLoadedImplCopyWith<$Res> {
   factory _$$SignupPageStateLoadedImplCopyWith(
           _$SignupPageStateLoadedImpl value,
           $Res Function(_$SignupPageStateLoadedImpl) then) =
       __$$SignupPageStateLoadedImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({bool isDarkMode});
 }
 
 /// @nodoc
@@ -107,78 +83,52 @@ class __$$SignupPageStateLoadedImplCopyWithImpl<$Res>
   __$$SignupPageStateLoadedImplCopyWithImpl(_$SignupPageStateLoadedImpl _value,
       $Res Function(_$SignupPageStateLoadedImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? isDarkMode = null,
-  }) {
-    return _then(_$SignupPageStateLoadedImpl(
-      isDarkMode: null == isDarkMode
-          ? _value.isDarkMode
-          : isDarkMode // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$SignupPageStateLoadedImpl implements SignupPageStateLoaded {
-  const _$SignupPageStateLoadedImpl({this.isDarkMode = false});
-
-  @override
-  @JsonKey()
-  final bool isDarkMode;
+  const _$SignupPageStateLoadedImpl();
 
   @override
   String toString() {
-    return 'SignupPageState.loaded(isDarkMode: $isDarkMode)';
+    return 'SignupPageState.loaded()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SignupPageStateLoadedImpl &&
-            (identical(other.isDarkMode, isDarkMode) ||
-                other.isDarkMode == isDarkMode));
+            other is _$SignupPageStateLoadedImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isDarkMode);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SignupPageStateLoadedImplCopyWith<_$SignupPageStateLoadedImpl>
-      get copyWith => __$$SignupPageStateLoadedImplCopyWithImpl<
-          _$SignupPageStateLoadedImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isDarkMode) loaded,
+    required TResult Function() loaded,
   }) {
-    return loaded(isDarkMode);
+    return loaded();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isDarkMode)? loaded,
+    TResult? Function()? loaded,
   }) {
-    return loaded?.call(isDarkMode);
+    return loaded?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isDarkMode)? loaded,
+    TResult Function()? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(isDarkMode);
+      return loaded();
     }
     return orElse();
   }
@@ -213,13 +163,5 @@ class _$SignupPageStateLoadedImpl implements SignupPageStateLoaded {
 }
 
 abstract class SignupPageStateLoaded implements SignupPageState {
-  const factory SignupPageStateLoaded({final bool isDarkMode}) =
-      _$SignupPageStateLoadedImpl;
-
-  @override
-  bool get isDarkMode;
-  @override
-  @JsonKey(ignore: true)
-  _$$SignupPageStateLoadedImplCopyWith<_$SignupPageStateLoadedImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  const factory SignupPageStateLoaded() = _$SignupPageStateLoadedImpl;
 }

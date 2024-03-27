@@ -1,8 +1,9 @@
-
 import 'package:carpool/repositories/home_page.dart';
 import 'package:carpool/repositories/home_page/home_page_logic.dart';
 import 'package:carpool/repositories/login_page.dart';
 import 'package:carpool/repositories/login_page/login_page_logic.dart';
+import 'package:carpool/repositories/signup_page.dart';
+import 'package:carpool/repositories/signup_page/signup_page_logic.dart';
 import 'package:carpool/theme/app_colors.dart';
 import 'package:carpool/theme/app_style.dart';
 import 'package:flutter/cupertino.dart';
@@ -24,7 +25,7 @@ class Routes {
     if (name == HomePage.routeName) {
       return route(
         BlocProvider(
-          create: (context) => HomePageLogic(),
+          create: (context) => HomePageLogic(isDarkMode: false),
           child: const HomePage(),
         ),
       );
@@ -39,6 +40,14 @@ class Routes {
       );
     }
 
+    if (name == SignupPage.routeName) {
+      return route(
+        BlocProvider(
+          create: (context) => SignupPageLogic(),
+          child: const SignupPage(),
+        ),
+      );
+    }
 
     return route(_errorRoute(settings));
   }

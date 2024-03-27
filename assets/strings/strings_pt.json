@@ -4,7 +4,16 @@
         {
             "@_COMMON_": {},
             "common_app_title": "Carpooling",
-            "common_login_title": "Página de Login"
+            "common_login_title": "Página de Login",
+            "home_page_metrics_label": "Métricas",
+            "home_page_schedule_label": "Agenda",
+            "home_page_messages_label": "Mensagens",
+            "home_page_publish_label": "Publicar",
+            "home_page_search_label": "Procurar",
+            "home_page_search_from_label": "De",
+            "home_page_search_to_label": "Para",
+            "home_page_search_date_label": "Data",
+            "home_page_search_number_of_passengers_label": "Número de Passageiros"
         }
     ]
 }

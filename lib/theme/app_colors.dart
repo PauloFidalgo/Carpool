@@ -13,11 +13,11 @@ class AppColors {
   static const Color tenthColor = Color(0xFF00365D);
 
   // Light Mode UI colors
-  static Color get primaryButton => thirdColor;
+  static Color get primaryButton => fifthColor;
   static Color get secondaryButton => fifthColor;
   static Color get background => firstColor;
   static Color get textColor => eighthColor;
-  static Color get primaryButtonText => ninthColor;
+  static Color get primaryButtonText => Colors.white;
   static Color get secondaryButtonText => tenthColor;
   static Color get titleColor => tenthColor;
   static Color get appBarColor => secondColor;

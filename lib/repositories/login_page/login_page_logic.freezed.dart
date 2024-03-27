@@ -16,20 +16,19 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$LoginPageState {
-  bool get isDarkMode => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isDarkMode) loaded,
+    required TResult Function() loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isDarkMode)? loaded,
+    TResult? Function()? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isDarkMode)? loaded,
+    TResult Function()? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -49,10 +48,6 @@ mixin _$LoginPageState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $LoginPageStateCopyWith<LoginPageState> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -60,8 +55,6 @@ abstract class $LoginPageStateCopyWith<$Res> {
   factory $LoginPageStateCopyWith(
           LoginPageState value, $Res Function(LoginPageState) then) =
       _$LoginPageStateCopyWithImpl<$Res, LoginPageState>;
-  @useResult
-  $Res call({bool isDarkMode});
 }
 
 /// @nodoc
@@ -73,30 +66,13 @@ class _$LoginPageStateCopyWithImpl<$Res, $Val extends LoginPageState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? isDarkMode = null,
-  }) {
-    return _then(_value.copyWith(
-      isDarkMode: null == isDarkMode
-          ? _value.isDarkMode
-          : isDarkMode // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$LoginPageStateLoadedImplCopyWith<$Res>
-    implements $LoginPageStateCopyWith<$Res> {
+abstract class _$$LoginPageStateLoadedImplCopyWith<$Res> {
   factory _$$LoginPageStateLoadedImplCopyWith(_$LoginPageStateLoadedImpl value,
           $Res Function(_$LoginPageStateLoadedImpl) then) =
       __$$LoginPageStateLoadedImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({bool isDarkMode});
 }
 
 /// @nodoc
@@ -106,79 +82,52 @@ class __$$LoginPageStateLoadedImplCopyWithImpl<$Res>
   __$$LoginPageStateLoadedImplCopyWithImpl(_$LoginPageStateLoadedImpl _value,
       $Res Function(_$LoginPageStateLoadedImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? isDarkMode = null,
-  }) {
-    return _then(_$LoginPageStateLoadedImpl(
-      isDarkMode: null == isDarkMode
-          ? _value.isDarkMode
-          : isDarkMode // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$LoginPageStateLoadedImpl implements LoginPageStateLoaded {
-  const _$LoginPageStateLoadedImpl({this.isDarkMode = false});
-
-  @override
-  @JsonKey()
-  final bool isDarkMode;
+  const _$LoginPageStateLoadedImpl();
 
   @override
   String toString() {
-    return 'LoginPageState.loaded(isDarkMode: $isDarkMode)';
+    return 'LoginPageState.loaded()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoginPageStateLoadedImpl &&
-            (identical(other.isDarkMode, isDarkMode) ||
-                other.isDarkMode == isDarkMode));
+            other is _$LoginPageStateLoadedImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isDarkMode);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LoginPageStateLoadedImplCopyWith<_$LoginPageStateLoadedImpl>
-      get copyWith =>
-          __$$LoginPageStateLoadedImplCopyWithImpl<_$LoginPageStateLoadedImpl>(
-              this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isDarkMode) loaded,
+    required TResult Function() loaded,
   }) {
-    return loaded(isDarkMode);
+    return loaded();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isDarkMode)? loaded,
+    TResult? Function()? loaded,
   }) {
-    return loaded?.call(isDarkMode);
+    return loaded?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isDarkMode)? loaded,
+    TResult Function()? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(isDarkMode);
+      return loaded();
     }
     return orElse();
   }
@@ -213,13 +162,5 @@ class _$LoginPageStateLoadedImpl implements LoginPageStateLoaded {
 }
 
 abstract class LoginPageStateLoaded implements LoginPageState {
-  const factory LoginPageStateLoaded({final bool isDarkMode}) =
-      _$LoginPageStateLoadedImpl;
-
-  @override
-  bool get isDarkMode;
-  @override
-  @JsonKey(ignore: true)
-  _$$LoginPageStateLoadedImplCopyWith<_$LoginPageStateLoadedImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  const factory LoginPageStateLoaded() = _$LoginPageStateLoadedImpl;
 }
